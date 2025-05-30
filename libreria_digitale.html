@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Biblioteca consigliata</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #3b2f2f;
+    min-height: 100vh;
+  }
+  .overlay {
+    background: rgba(255, 248, 240, 0.88);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+    box-sizing: border-box;
+  }
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #5a3e36;
+    text-shadow: 1px 1px 2px #d7bfae;
+  }
+  .shelf {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    background: #f7eee9;
+    border: 3px solid #a67c52;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(101, 75, 54, 0.4);
+    padding: 1.5rem 2rem 2rem;
+  }
+  .shelf h2 {
+    margin-top: 0;
+    font-size: 1.9rem;
+    color: #6b4f3c;
+    border-bottom: 2px solid #a67c52;
+    padding-bottom: 0.3rem;
+  }
+  .subtitle {
+    font-style: italic;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    color: #7a5d49;
+  }
+  .book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .book {
+    background: #fff3e6;
+    border: 2px solid #b68b52;
+    border-radius: 8px;
+    width: 260px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgba(166, 130, 81, 0.4);
+    transition: background 0.3s ease;
+  }
+  .book:hover {
+    background: #fce9c7;
+  }
+  .book-title {
+    font-weight: 600;
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1.1rem;
+    color: #5b432f;
+  }
+  .dropdown {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+    border-top: 1px solid #a67c52;
+    color: #533c2f;
+  }
+  .stars {
+    color: #c1862f;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .description {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #7a5d49;
+    border-left: 3px solid #b68b52;
+    padding-left: 0.5rem;
+  }
+  @media (max-width: 600px) {
+    .book-container {
+      justify-content: center;
+    }
+    .book {
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>VIAGGIO ATTRAVERSO I LIBRI - la mia libreria digitale</h1>
+
+    <div class="shelf">
+      <h2>📖 Per uscire dal blocco del lettore</h2>
+      <p class="subtitle">Libri scorrevoli, coinvolgenti, brevi o particolarmente immersivi</p>
+      <div class="book-container">
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Pomodori verdi fritti al caffè di Whistle Stop – Fannie Flagg</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Una storia calda e ironica che intreccia vite di donne e amicizie in una piccola città del Sud degli Stati Uniti.</div>
+            <div class="quote">"A volte una storia semplice è il modo migliore per riprendere a leggere."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Normal People – Sally Rooney</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La complicata relazione tra due giovani irlandesi, tra crescita personale, amore e incomunicabilità.</div>
+            <div class="quote">"L'intensità delle emozioni può essere la migliore medicina per il blocco."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Eleanor Oliphant sta benissimo – Gail Honeyman</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Il percorso di una donna solitaria che impara ad aprirsi al mondo e a superare il suo passato doloroso.</div>
+            <div class="quote">"Ogni lettura è una porta verso una nuova speranza."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">La biblioteca di mezzanotte – Matt Haig</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un viaggio tra vite alternative e scelte esistenziali che spinge a riflettere sul valore del presente.</div>
+            <div class="quote">"Ogni libro può aprire una porta che credevamo chiusa."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">La ragazza del treno – Paula Hawkins</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un thriller psicologico che cattura fin dalle prime pagine con suspense e colpi di scena.</div>
+            <div class="quote">"La tensione narrativa è la chiave per riaccendere la voglia di leggere."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Norwegian Wood – Haruki Murakami</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un racconto intenso di amore, perdita e crescita ambientato nella Tokyo degli anni ’60.</div>
+            <div class="quote">"La profondità dei sentimenti rende ogni pagina un’esperienza unica."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Un giorno – David Nicholls</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La storia di due amici e delle loro vite intrecciate nel corso degli anni, con delicatezza e ironia.</div>
+            <div class="quote">"La vita è fatta di piccoli momenti da scoprire."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Le città invisibili – Italo Calvino</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un viaggio immaginifico attraverso città fantastiche che esplorano i desideri e le paure umane.</div>
+            <div class="quote">"La fantasia è la migliore cura per il blocco creativo."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Hunger Games – Suzanne Collins</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un’avventura distopica ricca di azione, coraggio e critica sociale.</div>
+            <div class="quote">"L’adrenalina di un buon racconto riaccende la passione per la lettura."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Fai bei sogni – Massimo Gramellini</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Una riflessione toccante sulla perdita e la speranza, narrata con delicatezza e umanità.</div>
+            <div class="quote">"A volte un libro può essere un abbraccio silenzioso."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shelf">
+      <h2>📚 Classici moderni</h2>
+      <p class="subtitle">Libri pubblicati dal secondo dopoguerra a oggi ma considerati "classici contemporanei"</p>
+      <div class="book-container">
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Cent’anni di solitudine – Gabriel García Márquez</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un capolavoro del realismo magico che narra la storia della famiglia Buendía in un villaggio colombiano.</div>
+            <div class="quote">"La magia e la realtà si fondono in un’unica narrazione.</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il giovane Holden – J.D. Salinger</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Il racconto dell’adolescenza tormentata di Holden Caulfield, un ragazzo che si ribella all’ipocrisia degli adulti.</div>
+            <div class="quote">"Essere giovani è un viaggio difficile ma imprescindibile."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il nome della rosa – Umberto Eco</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un thriller medievale tra storia, filosofia e mistero in un monastero oscuro.</div>
+            <div class="quote">"La verità si nasconde tra le pagine del passato."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Dieci piccoli indiani – Agatha Christie</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Dieci persone isolate su un’isola vengono uccise una a una seguendo una filastrocca inquietante.</div>
+            <div class="quote">"Il mistero è dietro ogni porta chiusa."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il grande Gatsby – F. Scott Fitzgerald</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La vita dorata e tragica di Jay Gatsby, simbolo del sogno americano degli anni ’20.</div>
+            <div class="quote">"Il passato non si può cancellare, ma si può cercare di rifare."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">La fattoria degli animali – George Orwell</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Una favola politica che denuncia i pericoli del totalitarismo attraverso la ribellione degli animali.</div>
+            <div class="quote">"La libertà è un sogno fragile e prezioso."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">L’amica geniale – Elena Ferrante</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La complessa amicizia tra due ragazze di Napoli, tra crescita e differenze sociali.</div>
+            <div class="quote">"Le amicizie che segnano la vita sono difficili da dimenticare."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il barone rampante – Italo Calvino</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">La storia di Cosimo, che vive sugli alberi per ribellarsi alle convenzioni sociali, in una favola poetica.</div>
+            <div class="quote">"La libertà si conquista, a volte anche a costo di isolarsi."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Pastorale americana – Philip Roth</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un ritratto dell’America degli anni ’60 attraverso la storia di un uomo sconvolto dalla ribellione della figlia.</div>
+            <div class="quote">"La perfezione è spesso solo una fragile illusione."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il dio delle piccole cose – Arundhati Roy</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Una narrazione intensa sulla famiglia, l’amore proibito e le tragedie personali nell’India meridionale.</div>
+            <div class="quote">"Le piccole cose spesso hanno il potere più grande."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shelf">
+      <h2>🎓 Narrativa per ragazzi che dovranno sostenere l’esame di maturità</h2>
+      <p class="subtitle">Libri formativi, con temi civili, identitari o sociali, adatti ai 16–19enni</p>
+      <div class="book-container">
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Se questo è un uomo – Primo Levi</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Il racconto drammatico e toccante dell’esperienza di Levi nei campi di concentramento nazisti.</div>
+            <div class="quote">"Una lettura necessaria per capire l’umanità e la sua memoria."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">La solitudine dei numeri primi – Paolo Giordano</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La storia di due adolescenti segnati da traumi che si riconoscono nella loro solitudine.</div>
+            <div class="quote">"I sentimenti complicati sono spesso la chiave per crescere."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Niente di nuovo sul fronte occidentale – Erich Maria Remarque</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un ritratto crudo e realistico della prima guerra mondiale dal punto di vista dei soldati.</div>
+            <div class="quote">"La guerra raccontata dai suoi veri protagonisti."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Io non ho paura – Niccolò Ammaniti</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un thriller adolescenziale che affronta paura, coraggio e scoperta della realtà.</div>
+            <div class="quote">"Crescere significa affrontare anche le paure più grandi."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Tutto chiede salvezza – Daniele Mencarelli</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un intenso racconto sulla lotta interiore e la ricerca di speranza.</div>
+            <div class="quote">"Anche nei momenti bui si può trovare luce."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il buio oltre la siepe – Harper Lee</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un romanzo sulla giustizia e l’innocenza ambientato nel Sud degli Stati Uniti degli anni ’30.</div>
+            <div class="quote">"Un inno alla moralità e alla dignità umana."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">1984 – George Orwell</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un romanzo distopico che racconta il controllo assoluto di uno stato totalitario sulla vita delle persone.</div>
+            <div class="quote">"Un monito potente sulla libertà e la sorveglianza."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Fahrenheit 451 – Ray Bradbury</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un futuro in cui i libri sono proibiti e bruciati, e la cultura è sotto attacco.</div>
+            <div class="quote">"Un invito a preservare la conoscenza e la libertà."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Bianca come il latte, rossa come il sangue – Alessandro D’Avenia</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Una storia di adolescenza, amore e dolore raccontata con delicatezza.</div>
+            <div class="quote">"I primi amori sono la scintilla della vita."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">La paranza dei bambini – Roberto Saviano</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La vita difficile dei ragazzi di strada a Napoli, tra criminalità e voglia di riscatto.</div>
+            <div class="quote">"La realtà spesso supera la fantasia."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shelf">
+      <h2>🌍 Libri che tutti devono leggere almeno una volta nella vita</h2>
+      <p class="subtitle">Grandi opere della letteratura universale</p>
+      <div class="book-container">
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Moby Dick – Herman Melville</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">L’epica caccia alla balena bianca, metafora della lotta dell’uomo contro il destino.</div>
+            <div class="quote">"Un viaggio infinito tra ossessione e destino."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">I fratelli Karamazov – Fëdor Dostoevskij</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un’analisi profonda della fede, della moralità e della natura umana attraverso la storia di una famiglia russa.</div>
+            <div class="quote">"Il conflitto tra ragione e fede in un capolavoro senza tempo."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Orgoglio e pregiudizio – Jane Austen</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un romanzo che esplora amore, classe sociale e carattere in un contesto dell’Inghilterra georgiana.</div>
+            <div class="quote">"L’ironia e la sensibilità al servizio della letteratura."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il Gattopardo – Giuseppe Tomasi di Lampedusa</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un affresco storico e familiare della Sicilia in trasformazione nel XIX secolo.</div>
+            <div class="quote">"La decadenza di un mondo e l’ineluttabilità del cambiamento."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Don Chisciotte della Mancia – Miguel de Cervantes</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">L’avventura ironica e malinconica del cavaliere errante e del suo scudiero.</div>
+            <div class="quote">"Il sogno e la realtà si fondono in una delle più grandi opere di sempre."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">L’isola del tesoro – Robert Louis Stevenson</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">Un’avventura classica di pirati, mappe segrete e coraggio.</div>
+            <div class="quote">"Un viaggio nella fantasia e nel coraggio giovanile."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il piccolo principe – Antoine de Saint-Exupéry</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un racconto poetico e filosofico sulla vita, l’amore e l’innocenza.</div>
+            <div class="quote">"Un libro per tutte le età e per tutte le anime."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Anna Karenina – Lev Tolstoj</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un ritratto complesso dell’amore, della società e della tragedia nella Russia zarista.</div>
+            <div class="quote">"La passione e la rovina si intrecciano in una grande opera."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Frankenstein – Mary Shelley</div>
+          <div class="dropdown">
+            <div class="stars">★★★★☆</div>
+            <div class="description">La storia del mostro creato dalla scienza e le sue riflessioni sull’umanità.</div>
+            <div class="quote">"Un romanzo fondativo della fantascienza e della riflessione etica."</div>
+          </div>
+        </div>
+        <div class="book" onclick="toggleDropdown(this)">
+          <div class="book-title">Il Maestro e Margherita – Michail Bulgakov</div>
+          <div class="dropdown">
+            <div class="stars">★★★★★</div>
+            <div class="description">Un’opera surreale che mescola satira, amore e soprannaturale nell’Unione Sovietica.</div>
+            <div class="quote">"Un viaggio tra realtà e fantasia senza precedenti."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  function toggleDropdown(el) {
+    const dropdown = el.querySelector('.dropdown');
+    if (!dropdown) return;
+    if (dropdown.style.display === 'block') {
+      dropdown.style.display = 'none';
+    } else {
+      // chiudo tutti gli altri aperti
+      document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
+      dropdown.style.display = 'block';
+      el.scrollIntoView({behavior: "smooth", block: "center"});
+    }
+  }
+</script>
+
+</body>
+</html>
